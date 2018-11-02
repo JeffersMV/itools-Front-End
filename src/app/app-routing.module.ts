@@ -12,24 +12,32 @@ import {HomeComponent} from "./components/home/home.component";
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {
-        path: 'home', component: HomeComponent,
-        children: [{
-            path: 'authors', component: AuthorComponent, children: [
-                {path: 'details-author/:id', component: DetailsAuthorComponent},
-                {path: 'add-author', component: AddAuthorComponent}
-            ]
-        },
-            {
-                path: 'books', component: BookComponent, children: [
-                    {path: 'details-book/:id', component: DetailsBookComponent},
-                    {path: 'add-book', component: AddBookComponent}
-                ]
-
-            }]
+        path: 'home', component: HomeComponent
     },
-    // otherwise redirect to home
-    {path: '**', redirectTo: '/home'}
-];
+    {
+        path: 'authors', component: AuthorComponent,
+        children: [
+            {path: 'details-author/:id', component: DetailsAuthorComponent},
+            {path: 'add-author', component: AddAuthorComponent}
+        ]
+    },
+    {
+        path: 'books', component: BookComponent,
+        children: [
+            {path: 'details-book/:id', component: DetailsBookComponent},
+            {path: 'add-book', component: AddBookComponent}
+        ]
+
+    },
+
+// otherwise redirect to home
+{
+    path: '**', redirectTo
+:
+    'authors'
+}
+]
+;
 
 @NgModule({
     imports: [

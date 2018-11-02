@@ -1,10 +1,8 @@
-import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {SettingsService} from "./settings.service";
 import {LocatorService} from "./locator.service";
 import {FilterMetadata} from 'primeng/primeng';
-
 
 
 export abstract class BaseApiService {
@@ -13,7 +11,7 @@ export abstract class BaseApiService {
     private readonly defaultApi: string;
     private opts = BaseApiService.getOptions();
 
-    protected constructor() {
+    public constructor() {
         this.http = LocatorService.injector.get(HttpClient);
         this.settings = LocatorService.injector.get(SettingsService);
         this.defaultApi = `${this.settings.baseUrl}`;
@@ -21,7 +19,8 @@ export abstract class BaseApiService {
 
     private static getOptions(): any {
         let opts: HttpHeaders = new HttpHeaders();
-        opts = opts.append('Accept', 'application/json');
+        opts = opts.append('Content-Type',  'application/json;charset=utf-8');
+        // opts = opts.append('Accept', 'application/json');
         return {headers: opts};
     }
 

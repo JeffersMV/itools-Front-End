@@ -35,6 +35,8 @@ import {AddBookComponent} from './components/book/add-book/add-book.component';
 import {DetailsBookComponent} from './components/book/details-book/details-book.component';
 import {DetailsAuthorComponent} from './components/author/details-author/details-author.component';
 import {HomeComponent} from './components/home/home.component';
+import {AuthorService} from "./services/author.service";
+import {BookService} from "./services/book.service";
 
 
 export function configFactory(http: HttpClient) {
@@ -78,6 +80,8 @@ export function configFactory(http: HttpClient) {
         MatTooltipModule
     ],
     providers: [
+        AuthorService,
+        BookService,
         SettingsService,
         GlobalCommunicationService
     ],

@@ -33,10 +33,8 @@ export class AuthorComponent implements OnInit {
             this.subscription.unsubscribe();
         }
         this.subscription = this.authorService.getAuthors().subscribe(
-            (data: PagingResultModel<AuthorModel>) => {
-                console.log(data);
-                this.totalRecords = data.total;
-                this.authors = data.items;
+            (data: AuthorModel) => {
+                this.authors = data['authors'];
             },
             (err: any) => {
                 console.error(err);

@@ -1,8 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SortOrderEnum} from "../../constants";
-import {AuthorFilterModel} from "../../models/filter-models/author-filter.model";
-import {AuthorModel} from "../../models/view-models/author.model";
-import {AuthorService} from "../../services/author.service";
 import {SettingsService} from "../../services/configuration/settings.service";
 import {PagingResultModel} from "../../models/paging-result.model";
 import {LazyLoadEvent} from "primeng/api";
@@ -34,9 +31,7 @@ export class BookComponent implements OnInit {
       }
       this.subscription = this.bookService.getBooks().subscribe(
           (data: PagingResultModel<BookModel>) => {
-              console.log(data);
-              this.totalRecords = data.total;
-              this.books = data.items;
+              this.books = data['books'];
           },
           (err: any) => {
               console.error(err);
