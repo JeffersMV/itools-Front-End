@@ -7,7 +7,7 @@ import {GlobalCommunicationService} from "./services/configuration/global-commun
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    title = 'Library Of Books Books';
+    title = 'Library Of Books';
     public constructor(public communication: GlobalCommunicationService){
 
     }

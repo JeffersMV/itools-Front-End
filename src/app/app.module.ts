@@ -25,10 +25,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import {MessagegrowlComponent} from './components/messagegrowl/messagegrowl.component';
 import {LocatorService} from "./services/configuration/locator.service";
-import {BaseApiService} from "./services/configuration/base-api.service";
 import {SettingsService} from "./services/configuration/settings.service";
-import {AuthorService} from "./services/author.service";
-import {BookService} from "./services/book.service";
 import {GlobalCommunicationService} from "./services/configuration/global-communication.service";
 import {AuthorComponent} from './components/author/author.component';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
@@ -37,10 +34,11 @@ import {BookComponent} from './components/book/book.component';
 import {AddBookComponent} from './components/book/add-book/add-book.component';
 import {DetailsBookComponent} from './components/book/details-book/details-book.component';
 import {DetailsAuthorComponent} from './components/author/details-author/details-author.component';
+import {HomeComponent} from './components/home/home.component';
 
 
 export function configFactory(http: HttpClient) {
-    return new ConfigHttpLoader(http, './config.json');
+    return new ConfigHttpLoader(http, './assets/config.json');
 }
 
 @NgModule({
@@ -48,13 +46,14 @@ export function configFactory(http: HttpClient) {
         AppComponent,
         MenuComponent,
         MessagegrowlComponent,
-        AuthorComponent,
         SidebarComponent,
+        AuthorComponent,
         AddAuthorComponent,
+        DetailsAuthorComponent,
         BookComponent,
         AddBookComponent,
         DetailsBookComponent,
-        DetailsAuthorComponent
+        HomeComponent
     ],
     imports: [
         ConfigModule.forRoot({
@@ -79,7 +78,6 @@ export function configFactory(http: HttpClient) {
         MatTooltipModule
     ],
     providers: [
-
         SettingsService,
         GlobalCommunicationService
     ],
